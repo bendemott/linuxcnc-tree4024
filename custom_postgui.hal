@@ -1,0 +1,29 @@
+# Include your custom_postgui HAL commands here
+# This file will not be overwritten when you run PNCconf again
+
+# Turn machine to "on" when
+# this will set halui.machine.is-on to True
+#net input-front-panel-on => halui.machine.on
+#net enable-motion halui.machine.on => motion.enable
+# the result of turning the machine on will be enable motion
+# if motion is enabled turn the servos on!
+#net output-servos-enable <= motion.motion-enabled
+#  INTERNAL ESTOP ========================
+#net estop-out     <=  iocontrol.0.user-enable-out
+#net estop-out     =>  iocontrol.0.emc-enable-in
+
+net input-front-panel-on => motion.enable
+net input-front-panel-on => halui.machine.on
+net output-servos-enable <= halui.machine.is-on
+#net input-front-panel-off => halui.machine.off
+#net machine-on motion.enable <= halui.machine.is-on
+
+
+# IO for spindle ui
+net spindle-fb-rpm-abs-filtered => spindleui.spindle-rpm
+net spindle-vel-cmd-rpm-abs => spindleui.commanded-rpm
+net input-spindle-speed-attained => spindleui.speed-attained
+
+# Unclamp tool manually via release button
+net output-spindle-unclamp <= mega2560.input-13
+

@@ -1,0 +1,8 @@
+{
+    "COMPONENT": "mega2560",
+    "INPUT_COUNT": 34,
+    "OUTPUT_COUNT": 18,
+    "DEVICE_DESCRIPTION": "Mega 2560",
+    "DEVICE_SERIAL": null,
+    "LOG_LEVEL": "WARNING"
+}
